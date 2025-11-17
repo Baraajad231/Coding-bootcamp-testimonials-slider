@@ -11,9 +11,11 @@ nextBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
     if (currentIndex < slide.length - 1) {
       currentIndex++;
-      updateSlider();
-      bolitsHandler();
+    } else {
+      currentIndex = 0; // إعادة من البداية إذا كانت آخر شريحة
     }
+    updateSlider();
+    bolitsHandler();
   })
 );
 
@@ -22,9 +24,11 @@ backBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
     if (currentIndex > 0) {
       currentIndex--;
-      updateSlider();
-      bolitsHandler();
+    } else {
+      currentIndex = slide.length - 1; 
     }
+    updateSlider();
+    bolitsHandler();
   })
 );
 
@@ -63,3 +67,4 @@ const btnsKeyboardHandler = () => {
   });
 };
 btnsKeyboardHandler();
+
